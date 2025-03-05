@@ -4,8 +4,30 @@
 // • Usando setInterval.
 // • Usando setTimeout anidado.
 
-function imprimirNumeros (desde, hasta) {
+let desde = parseInt(prompt("ingrese un numero (desde)"));
+let hasta = parseInt(prompt("ingrese un numero (hasta)"));
+
+
+function imprimirNumeros(desde, hasta) {
+  console.log("setInterval")
+ let id = setInterval(() => {
+   console.log(desde++);
+   if (desde > hasta) clearInterval(id);
+ }, 1000);
   
 }
-let desde = parseInt(prompt("ingrese un numero :"));
-let hasta = parseInt(prompt("ingrese un numero :"));
+imprimirNumeros(desde, hasta);
+
+
+
+function imprimirNu(desde, hasta) {
+  console.log("setTimeout");
+  let idT = setTimeout(function rep() {
+    console.log(desde++);
+    if (desde<hasta) {
+      setTimeout(rep,1000)
+    }
+  }, 1000);
+
+}
+imprimirNu(desde, hasta);
